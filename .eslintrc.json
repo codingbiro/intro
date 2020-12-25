@@ -6,7 +6,7 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb",
+        "airbnb-typescript",
         "plugin:import/typescript"
     ],
     "parser": "@typescript-eslint/parser",
@@ -15,7 +15,8 @@
             "jsx": true
         },
         "ecmaVersion": 12,
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
     "plugins": [
         "react",
@@ -35,7 +36,8 @@
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": ["error"],
         "linebreak-style": 0,
-        "max-len": ["error", { "code": 140 }]
+        "max-len": ["error", { "code": 140 }],
+        "no-underscore-dangle": 0
     },
     "settings": {
       "import/core-modules": ["public"]

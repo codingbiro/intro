@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import { Box } from '@material-ui/core';
-import { init } from 'ityped';
+import React from 'react';
+import {
+  Box, CssBaseline, makeStyles, ThemeProvider,
+} from '@material-ui/core';
+import { NightsStay as NightsStayIcon, WbSunny as WbSunnyIcon } from '@material-ui/icons';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
-import theme from './theme';
+import { I18nextProvider } from 'react-i18next';
+import dayTheme from './theme';
+import darkTheme from './darkTheme';
+import Page from './Page';
+import i18n from './i18n';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({
   '@global': {
     '@keyframes blink': {
       '100%': {
@@ -15,57 +20,51 @@ const useStyles = makeStyles({
       },
     },
   },
-  header: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    border: 0,
-    borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-  },
-  lead: {
-    fontSize: 24,
-  },
-  typing: {
-    '& .ityped-cursor': {
-      fontSize: 24,
-      opacity: 1,
-      animation: 'blink 0.3s infinite',
-      animationDirection: 'alternate',
+  toggle: {
+    height: '40px',
+    borderRadius: '16px',
+    '&.Mui-selected': {
+      backgroundColor: 'rgba(0,0,0,0.4)',
     },
   },
-});
+  rowCenter: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
 const App: React.FC = () => {
-  const { lead, typing } = useStyles();
-  useEffect(() => {
-    const myElement = document.querySelector('#myElement');
-    if (myElement) {
-      init(myElement, {
-        showCursor: true,
-        strings: ['Online solutions for you', 'Project management', 'Mobile first web applications'],
-        typeSpeed: 100,
-        backSpeed: 50,
-        startDelay: 500,
-        backDelay: 500,
-      });
-    }
-  });
+  const { rowCenter, toggle } = useStyles();
+  const [mode, setMode] = React.useState<'sun'|'night'>('sun');
+
+  const handleMode = (_event: any, _mode: 'sun'|'night') => {
+    setMode(_mode);
+  };
+
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <header>
-        <Box display="flex" alignItems="center" justifyContent="center" width="100%" height="10vh">
-          <Button variant="contained" color="primary">
-            Hello World
-          </Button>
+
+    <I18nextProvider i18n={i18n}>
+      <ThemeProvider theme={mode === 'sun' ? dayTheme : darkTheme}>
+        <CssBaseline />
+        <Box position="absolute" top={0} right={0} height="60px" className={rowCenter} paddingRight={2}>
+          <ToggleButtonGroup
+            value={mode}
+            exclusive
+            onChange={handleMode}
+          >
+            <ToggleButton className={toggle} value="sun">
+              <WbSunnyIcon height="40px" />
+            </ToggleButton>
+            <ToggleButton className={toggle} value="night">
+              <NightsStayIcon height="40px" />
+            </ToggleButton>
+          </ToggleButtonGroup>
         </Box>
-      </header>
-      <Box className={typing} display="flex" alignItems="center" justifyContent="center" width="100%" height="90vh">
-        <div className={lead} id="myElement" />
-      </Box>
-    </ThemeProvider>
+        <Page />
+      </ThemeProvider>
+    </I18nextProvider>
   );
 };
 
