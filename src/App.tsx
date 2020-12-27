@@ -7,8 +7,8 @@ import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
 import { I18nextProvider } from 'react-i18next';
-import dayTheme from './theme';
-import darkTheme from './darkTheme';
+import dayTheme from './themes/theme';
+import darkTheme from './themes/darkTheme';
 import Page from './Page';
 import i18n from './i18n';
 

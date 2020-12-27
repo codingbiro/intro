@@ -1,12 +1,14 @@
 import React from 'react';
-import { Box, makeStyles, useTheme } from '@material-ui/core';
+import {
+  Box, makeStyles, Theme, Typography, useTheme,
+} from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import LeadText from './LeadText';
+import LeadText from './components/LeadText';
 
-const useStyles = makeStyles(({
+const useStyles = makeStyles((theme: Theme) => ({
   toggle: {
     height: '40px',
     borderRadius: '16px',
@@ -20,12 +22,38 @@ const useStyles = makeStyles(({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  darius: {
+    '&:after': {
+      content: '""',
+      width: '50px',
+      height: '50px',
+      background: theme.palette.primary.dark,
+      zIndex: '100',
+      position: 'absolute',
+      right: '-50px',
+      bottom: 0,
+      borderBottomLeftRadius: '50%',
+    },
+  },
+  beforius: {
+    '&:before': {
+      content: '""',
+      width: '50px',
+      height: '50px',
+      background: theme.palette.primary.dark,
+      zIndex: '100',
+      position: 'absolute',
+      left: '-50px',
+      bottom: 0,
+      borderBottomRightRadius: '50%',
+    },
+  },
 }));
 
 const Page: React.FC = () => {
   const theme = useTheme();
   const { t, i18n } = useTranslation();
-  const { rowCenter, toggle } = useStyles();
+  const { beforius, darius, toggle } = useStyles();
   const [lang, setLang] = React.useState<'en'|'hu'>('en');
 
   const handleLang = (_event: any, _lang: 'en'|'hu') => {
@@ -43,7 +71,18 @@ const Page: React.FC = () => {
       }}
     >
       <header>
-        <Box position="absolute" top={0} left={0} height="60px" className={rowCenter} paddingLeft={2}>
+        <Box
+          display="grid"
+          margin="auto"
+          paddingX={2}
+          gridTemplateColumns="1fr 1fr 1fr"
+          justifyItems="start"
+          alignItems="center"
+          width="100%"
+          height="60px"
+          color="primary.main"
+          fontSize={24}
+        >
           <ToggleButtonGroup
             value={lang}
             exclusive
@@ -56,34 +95,66 @@ const Page: React.FC = () => {
               <img src="en.png" alt="en" height="30px" />
             </ToggleButton>
           </ToggleButtonGroup>
-        </Box>
-        <Box
-          display="flex"
-          alignItems="center"
-          margin="auto"
-          paddingX={2}
-          justifyContent="space-between"
-          maxWidth="1200px"
-          width="100%"
-          height="60px"
-          color="primary.main"
-          fontSize={24}
-        >
-          {t('main:company')}
-          <p>
-            {t('main:title')}
-          </p>
-          <p>
-            {t('main:friend')}
-          </p>
+          <Box justifySelf="center">
+            <Typography>{t('main:title')}</Typography>
+          </Box>
+          <div />
         </Box>
       </header>
+      <Box
+        height="100px"
+      />
+      <Box position="absolute" top="60px" left="0" height="100px" width="100px" bgcolor="secondary.main" />
+      <Box
+        position="absolute"
+        top="60px"
+        left="100px"
+        height="100px"
+        width="100px"
+        bgcolor="secondary.main"
+        borderRadius="0px 40% 0px 0px"
+        className={darius}
+      />
+      <Box
+        position="absolute"
+        top="110px"
+        left="200px"
+        height="50px"
+        width="50px"
+        bgcolor="secondary.main"
+      />
+      <Box
+        position="absolute"
+        top="110px"
+        left="550px"
+        height="50px"
+        width="50px"
+        bgcolor="secondary.main"
+      />
+      <Box
+        position="absolute"
+        top="60px"
+        left="600px"
+        height="100px"
+        width="100px"
+        bgcolor="secondary.main"
+        borderRadius="40% 0px 0px 0px"
+        className={beforius}
+      />
+      <Box
+        position="absolute"
+        top="60px"
+        left="700px"
+        height="100px"
+        width="calc(100% - 700px)"
+        bgcolor="secondary.main"
+      />
       <Box
         display="flex"
         alignItems="center"
         justifyContent="center"
         width="100%"
-        height="calc(100vh - 60px)"
+        height="calc(100vh - 160px)"
         bgcolor="secondary.main"
         style={{
           border: 0,
