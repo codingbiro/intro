@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { makeStyles, Theme } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
+import { Skeleton } from '@material-ui/lab';
 import { init } from 'ityped';
 import { useTranslation } from 'react-i18next';
 
-const useStyles = makeStyles((theme: Theme) => ({
+import { Theme } from '../themes/baseTheme';
 
+const useStyles = makeStyles((theme: Theme) => ({
   typing: {
     '& .ityped-cursor': {
       fontSize: 50,
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const LeadText: React.FC = () => {
+const LeadText: React.FC<{ loading?: boolean }> = ({ loading }) => {
   const { typing } = useStyles();
   const { t } = useTranslation();
 
@@ -49,7 +51,13 @@ const LeadText: React.FC = () => {
   });
 
   return (
-    <div id="typed" className={typing} />
+    loading
+      ? (
+        <Skeleton animation="wave" variant="rect" width="30%">
+          <div id="typed" className={typing} />
+        </Skeleton>
+      )
+      : <div id="typed" className={typing} />
   );
 };
 

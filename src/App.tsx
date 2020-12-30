@@ -9,6 +9,7 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import { I18nextProvider } from 'react-i18next';
 import dayTheme from './themes/theme';
 import darkTheme from './themes/darkTheme';
+import baseTheme from './themes/baseTheme';
 import Page from './Page';
 import i18n from './i18n';
 
@@ -46,23 +47,25 @@ const App: React.FC = () => {
   return (
 
     <I18nextProvider i18n={i18n}>
-      <ThemeProvider theme={mode === 'sun' ? dayTheme : darkTheme}>
-        <CssBaseline />
-        <Box position="absolute" top={0} right={0} height="60px" className={rowCenter} paddingRight={2}>
-          <ToggleButtonGroup
-            value={mode}
-            exclusive
-            onChange={handleMode}
-          >
-            <ToggleButton className={toggle} value="sun">
-              <WbSunnyIcon height="40px" />
-            </ToggleButton>
-            <ToggleButton className={toggle} value="night">
-              <NightsStayIcon height="40px" />
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </Box>
-        <Page />
+      <ThemeProvider theme={baseTheme}>
+        <ThemeProvider theme={mode === 'sun' ? dayTheme : darkTheme}>
+          <CssBaseline />
+          <Box position="absolute" top={0} right={0} height="60px" className={rowCenter} paddingRight={2}>
+            <ToggleButtonGroup
+              value={mode}
+              exclusive
+              onChange={handleMode}
+            >
+              <ToggleButton className={toggle} value="sun">
+                <WbSunnyIcon height="40px" />
+              </ToggleButton>
+              <ToggleButton className={toggle} value="night">
+                <NightsStayIcon height="40px" />
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </Box>
+          <Page />
+        </ThemeProvider>
       </ThemeProvider>
     </I18nextProvider>
   );
