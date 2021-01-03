@@ -8,19 +8,19 @@ import { Theme } from '../themes/baseTheme';
 
 const useStyles = makeStyles((theme: Theme) => ({
   typing: {
+    textAlign: 'center',
     '& .ityped-cursor': {
       fontSize: 50,
       opacity: 1,
       animation: 'blink 0.3s infinite',
       animationDirection: 'alternate',
       color: theme.palette.primary.main,
+      display: 'inline',
     },
     '& .typed': {
       fontSize: 50,
       color: theme.palette.primary.main,
-    },
-    '& .typedContainer > *': {
-      display: 'inline-block',
+      display: 'inline',
     },
   },
 }));
@@ -48,7 +48,7 @@ const LeadText: React.FC<{ loading?: boolean }> = ({ loading }) => {
       });
     }
     return () => container.remove();
-  });
+  }, [t]);
 
   return (
     loading

@@ -14,13 +14,6 @@ import Page from './Page';
 import i18n from './i18n';
 
 const useStyles = makeStyles(({
-  '@global': {
-    '@keyframes blink': {
-      '100%': {
-        opacity: 0,
-      },
-    },
-  },
   toggle: {
     height: '40px',
     borderRadius: '16px',
