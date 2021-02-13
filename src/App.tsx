@@ -9,16 +9,23 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import { I18nextProvider } from 'react-i18next';
 import dayTheme from './themes/theme';
 import darkTheme from './themes/darkTheme';
-import baseTheme from './themes/baseTheme';
+import baseTheme, { Theme } from './themes/baseTheme';
 import Page from './Page';
 import i18n from './i18n';
 
-const useStyles = makeStyles(({
+const useStyles = makeStyles((theme: Theme) => ({
   toggle: {
     height: '40px',
     borderRadius: '16px',
     '&.Mui-selected': {
       backgroundColor: 'rgba(0,0,0,0.4)',
+    },
+    [theme.breakpoints.down(960)]: {
+      width: '54px',
+      position: 'relative',
+      '& span:nth-of-type(1)': {
+        position: 'absolute',
+      },
     },
   },
   rowCenter: {

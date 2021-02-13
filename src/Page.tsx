@@ -51,11 +51,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   toggle: {
     height: '40px',
     borderRadius: '16px',
-    '&.Mui-selected': {
+    '& .Mui-selected': {
       backgroundColor: 'rgba(0,0,0,0.4)',
     },
-    '& > span': {
-      position: 'absolute',
+    [theme.breakpoints.down(960)]: {
+      width: '54px',
+      position: 'relative',
+      '& span:nth-of-type(1)': {
+        position: 'absolute',
+      },
     },
   },
   rowCenter: {
