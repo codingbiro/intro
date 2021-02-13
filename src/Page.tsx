@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Box, Button, makeStyles, Typography, useTheme,
+  Box, Button, makeStyles, Typography, useMediaQuery, useTheme,
 } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { Element, Link } from 'react-scroll';
@@ -17,6 +17,7 @@ import Arrow from './components/Arrow';
 import BoxDesign from './components/BoxDesign';
 
 const CURVE_SIZE = 2.5;
+const CURVE_SIZE_MOBILE = 6;
 
 const useStyles = makeStyles((theme: Theme) => ({
   '@global': {
@@ -74,6 +75,7 @@ const Page: React.FC = () => {
   const [firstPage, setFirstPage] = React.useState(false);
   const [secondPage, setSecondPage] = React.useState(true);
   const [thirdPage, setThirdPage] = React.useState(true);
+  const mobile = useMediaQuery('(max-width:960px)');
 
   useScrollPosition(({ prevPos, currPos }) => {
     const posy = Math.abs(currPos.y);
@@ -130,18 +132,21 @@ const Page: React.FC = () => {
                 <Skeleton animation="wave" height={theme.sizes.headerHeight} width="15%" />
               )
               : (
-                <ToggleButtonGroup
-                  value={lang}
-                  exclusive
-                  onChange={handleLang}
-                >
-                  <ToggleButton className={toggle} value="hu">
-                    <img src="hu.png" alt="hu" height="30px" />
-                  </ToggleButton>
-                  <ToggleButton className={toggle} value="en">
-                    <img src="en.png" alt="en" height="30px" />
-                  </ToggleButton>
-                </ToggleButtonGroup>
+
+                <Box display="flex" justifyContent="center" alignItems="center">
+                  <ToggleButtonGroup
+                    value={lang}
+                    exclusive
+                    onChange={handleLang}
+                  >
+                    <ToggleButton className={toggle} value="hu">
+                      <img src="hu.png" alt="hu" height="30px" />
+                    </ToggleButton>
+                    <ToggleButton className={toggle} value="en">
+                      <img src="en.png" alt="en" height="30px" />
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </Box>
               )}
             <Box justifySelf="center">
               {loading
@@ -155,13 +160,13 @@ const Page: React.FC = () => {
             <div />
           </Box>
         </header>
-        <BoxDesign CURVE_SIZE={CURVE_SIZE} />
+        <BoxDesign CURVE_SIZE={mobile ? CURVE_SIZE_MOBILE : CURVE_SIZE} />
         <Box
           display="flex"
           alignItems="center"
           justifyContent="center"
           width="100%"
-          height={`calc(100vh - ${theme.sizes.headerHeight}px - ${2 * CURVE_SIZE}vw)`}
+          height={`calc(100vh - ${theme.sizes.headerHeight}px - ${mobile ? 2 * CURVE_SIZE_MOBILE : 2 * CURVE_SIZE}vw)`}
           bgcolor="secondary.main"
           style={{
             border: 0,

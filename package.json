@@ -51,6 +51,11 @@
       "last 1 safari version"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run tsc && npm run lint"
+    }
+  },
   "devDependencies": {
     "@types/ityped": "^1.0.0",
     "@types/react-scroll": "^1.8.2",
@@ -61,6 +66,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.7"
   }
 }
