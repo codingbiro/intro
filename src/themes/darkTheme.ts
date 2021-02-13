@@ -13,6 +13,11 @@ const darkTheme = createMuiTheme({
       dark: '#3B3231',
     },
   },
+  typography: {
+    h3: {
+      fontSize: '24px',
+    },
+  },
 });
 
 export default darkTheme;

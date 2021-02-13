@@ -13,6 +13,11 @@ const theme = createMuiTheme({
       dark: '#F6614E',
     },
   },
+  typography: {
+    h3: {
+      fontSize: '24px',
+    },
+  },
 });
 
 export default theme;
