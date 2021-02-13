@@ -53,6 +53,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     '&.Mui-selected': {
       backgroundColor: 'rgba(0,0,0,0.4)',
     },
+    '& > span': {
+      position: 'absolute',
+    },
   },
   rowCenter: {
     display: 'flex',
