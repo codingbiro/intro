@@ -59,7 +59,7 @@ export default function Tempapp() {
           </motion.div>
           <Box
             style={{
-              position: 'absolute', bottom: '100px', textAlign: 'center', left: 0, right: 0,
+              position: 'absolute', bottom: mobile ? '40px' : '100px', textAlign: 'center', left: 0, right: 0,
             }}
           >
             <Typography
