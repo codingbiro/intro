@@ -54,7 +54,10 @@ export default function Tempapp() {
             }}
           >
             <Typography variant="h5" style={{ paddingTop: '40px' }}>
-              I create web apps using Node, GraphQL and React.
+              I create secure web apps using Node.js, TypeScript, GraphQL with Apollo and React/Next.js.
+            </Typography>
+            <Typography variant="h6" style={{ paddingTop: '40px' }}>
+              I also do DevOps using technologies like Docker, Kubernetes and Serverless solutions running on AWS and GCP.
             </Typography>
           </motion.div>
           <Box
