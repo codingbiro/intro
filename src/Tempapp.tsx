@@ -53,10 +53,10 @@ export default function Tempapp() {
               default: { duration: 2 },
             }}
           >
-            <Typography variant="h5" style={{ paddingTop: '40px' }}>
+            <Typography variant="h5" style={{ paddingTop: '30px' }}>
               I create secure web apps using Node.js, TypeScript, GraphQL with Apollo and React/Next.js.
             </Typography>
-            <Typography variant="h6" style={{ paddingTop: '40px' }}>
+            <Typography variant="h6" style={{ paddingTop: '10px' }}>
               I also do DevOps using technologies like Docker, Kubernetes and Serverless solutions running on AWS and GCP.
             </Typography>
           </motion.div>
