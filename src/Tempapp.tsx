@@ -29,7 +29,7 @@ export default function Tempapp() {
           <motion.div
             animate={{ scale: 2 }}
             transition={{ duration: 1 }}
-            style={{ paddingBottom: '50px', maxWidth: mobile ? '100px' : '100%', margin: 'auto' }}
+            style={{ paddingBottom: '50px', maxWidth: mobile ? '100px' : '50%', margin: 'auto' }}
           >
             <img src="/face.png" alt="Biro Vince" width="100px" height="100px" />
           </motion.div>
