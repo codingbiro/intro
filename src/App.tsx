@@ -38,9 +38,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const App: React.FC = () => {
   const { rowCenter, toggle } = useStyles();
-  const [mode, setMode] = React.useState<'sun'|'night'>('sun');
+  const [mode, setMode] = React.useState<'sun' | 'night'>('sun');
 
-  const handleMode = (_event: any, _mode: 'sun'|'night') => {
+  const handleMode = (_event: any, _mode: 'sun' | 'night') => {
     setMode(_mode);
   };
 

@@ -38,7 +38,8 @@
         "linebreak-style": 0,
         "max-len": ["error", { "code": 140 }],
         "no-underscore-dangle": 0,
-        "react/prop-types": 0
+        "react/prop-types": 0,
+        "react/require-default-props": 0
     },
     "settings": {
       "import/core-modules": ["public"]

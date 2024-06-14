@@ -74,7 +74,7 @@ const Page: React.FC = () => {
   const theme = useTheme<Theme>();
   const { t, i18n } = useTranslation();
   const { toggle } = useStyles();
-  const [lang, setLang] = React.useState<'en'|'hu'>('en');
+  const [lang, setLang] = React.useState<'en' | 'hu'>('en');
   const [loading, setLoading] = React.useState(true);
   const [firstPage, setFirstPage] = React.useState(false);
   const [secondPage, setSecondPage] = React.useState(true);
@@ -103,7 +103,7 @@ const Page: React.FC = () => {
 
   setTimeout(() => { setLoading(false); }, 1100);
 
-  const handleLang = (_event: any, _lang: 'en'|'hu') => {
+  const handleLang = (_event: any, _lang: 'en' | 'hu') => {
     setLang(_lang);
     i18n.changeLanguage(_lang);
   };

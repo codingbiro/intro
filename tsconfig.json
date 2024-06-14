@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",  // Changed from "es5" to "es6"
     "lib": [
       "dom",
       "dom.iterable",
@@ -18,7 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx"  // Ensure this is set to "react-jsx"
   },
   "include": [
     "src"
