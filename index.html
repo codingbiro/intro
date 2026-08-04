@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vince Biró · Engineer & Tech Lead</title>
+    <meta
+      name="description"
+      content="Hi, I am Vince! Engineer and technical leader in Copenhagen. I build things that scale — full stack apps, data platforms and cloud infrastructure — and help teams do the same."
+    />
+    <link rel="icon" href="/bv_logo.ico" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="canonical" href="https://birovince.com/" />
+    <meta name="theme-color" content="#f6f7fc" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Vince Biró · Engineer & Tech Lead" />
+    <meta
+      property="og:description"
+      content="Engineer and technical leader building teams and systems that scale — full stack, data platforms and cloud."
+    />
+    <meta property="og:url" content="https://birovince.com/" />
+    <meta property="og:image" content="https://birovince.com/face.jpg" />
+    <meta name="twitter:card" content="summary" />
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('theme');
+          if (theme !== 'light' && theme !== 'dark') {
+            theme =
+              window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          }
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vince Biró",
+        "alternateName": "Biró Vince",
+        "jobTitle": "Tech Lead",
+        "worksFor": { "@type": "Organization", "name": "Ønskeskyen (GoWish)" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Technical University of Denmark (DTU)" },
+          { "@type": "CollegeOrUniversity", "name": "Budapest University of Technology and Economics (BME)" }
+        ],
+        "address": { "@type": "PostalAddress", "addressLocality": "Copenhagen", "addressCountry": "DK" },
+        "email": "mailto:hello@birovince.com",
+        "url": "https://birovince.com/",
+        "image": "https://birovince.com/face.jpg",
+        "sameAs": ["https://github.com/codingbiro", "https://www.linkedin.com/in/birovince"]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
