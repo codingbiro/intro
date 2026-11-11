@@ -1,90 +1,129 @@
-export interface SkillGroup {
+export interface NavItem {
+  id: string;
+  label: string;
+}
+
+export interface Outcome {
+  figure: string;
   title: string;
-  items: string[];
+  text: string;
+}
+
+export interface Photo {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 }
 
 export const content = {
-  brand: 'Vince Biró',
+  name: 'Vince Biró',
+  role: 'Head of Data & Product Platforms at GoWish',
+  location: 'Copenhagen',
   nav: {
-    about: 'About',
-    skills: 'Skills',
-    contact: 'Contact',
-    menu: 'Open menu',
-    closeMenu: 'Close menu',
+    label: 'On this page',
     skip: 'Skip to content',
+    items: [
+      { id: 'intro', label: 'Intro' },
+      { id: 'outcomes', label: 'Outcomes' },
+      { id: 'background', label: 'Background' },
+      { id: 'focus', label: 'Focus' },
+      { id: 'outside', label: 'Outside work' },
+      { id: 'contact', label: 'Contact' },
+    ] satisfies NavItem[],
   },
   a11y: {
     darkMode: 'Switch to dark mode',
     lightMode: 'Switch to light mode',
     portrait: 'Portrait of Vince Biró',
-    scrollDown: 'Scroll to the about section',
+    anchor: 'Link to section',
   },
-  hero: {
-    greeting: 'Hi, I am Vince',
-    roles: [
-      'Engineer & technical leader',
-      'Full stack engineering',
-      'Data platforms & DevOps',
-      'Teams and systems that scale',
-    ],
-    intro:
-      'I am an engineer and technical leader who loves building things that scale — and helping teams do the same in a maintainable and automated way.',
-    location: 'Copenhagen, Denmark',
-    talk: "Let's talk",
-  },
-  about: {
-    title: 'About me',
+  intro: {
     paragraphs: [
-      'Over the past 7+ years I have worked across the full stack: backend services in Node.js and TypeScript, frontends in React and Next.js, data platforms on BigQuery and dbt, and infrastructure on GCP, AWS, Kubernetes and serverless. I am just as comfortable debugging a gnarly microservice issue as I am shaping a data roadmap or mentoring engineers.',
-      'These days I split my time between leading a software engineering team building high-throughput systems — billions of daily transactions, 100M+ daily scrapes — and standing up a new data engineering function from scratch: hiring the team, picking the stack and setting the direction.',
-      'Before all that, I did a Master’s in Computer Security and Cloud Technologies, where I got into blockchain and Web3. My thesis on secure, decentralized IoT firmware dispatch was published at the IEEE Blockchain 2023 Conference.',
-      'I care about code quality, security and automation. But mostly I care about building teams and systems that people can actually rely on.',
-    ],
-    facts: [
-      '📍 Copenhagen, Denmark',
-      '💼 Ønskeskyen · GoWish',
-      '👥 3+ years leading teams',
-      '📄 IEEE Blockchain 2023',
+      'Hi, I’m Vince. I’m a software engineer, and I lead two engineering teams at GoWish (Ønskeskyen), the social wishlist app. One runs the product catalogue and keeps billions of products current. The other runs the data platform the rest of the company works from.',
+      'I lead by writing decisions down, handing over ownership early, and staying close to both the code and the cost. I like systems that keep working as they grow, and teams that can run them without me.',
     ],
   },
-  skills: {
-    title: 'Skills',
-    groups: [
+  outcomes: {
+    title: 'Outcomes',
+    lead: 'The scale we work at, and a few results from the teams I lead.',
+    items: [
       {
-        title: 'Frontend',
-        items: ['React', 'Next.js', 'TypeScript', 'Apollo Client', 'HTML & CSS'],
+        figure: '1B+',
+        title: 'API requests a day',
+        text: 'Across all of GoWish’s services.',
       },
       {
-        title: 'Backend',
-        items: ['Node.js', 'GraphQL', 'Apollo Server', 'REST APIs', 'Microservices', 'Blockchain & Web3'],
+        figure: '~1B',
+        title: 'Product updates a day',
+        text: 'Price and stock changes for a catalogue of billions of products. The team kept it fast through a tenfold rise in traffic.',
       },
       {
-        title: 'Data platforms',
-        items: ['BigQuery', 'dbt', 'PostgreSQL', 'Prisma'],
+        figure: '10M+',
+        title: 'Web pages scraped a day',
+        text: 'On a scraper we rebuilt in-house, on infrastructure we own. It costs a quarter less to run and fails less often.',
       },
       {
-        title: 'DevOps & Cloud',
-        items: ['Docker', 'Kubernetes', 'Serverless', 'AWS', 'GCP', 'CI/CD'],
+        figure: '0 → 1',
+        title: 'A data platform, and a team to run it',
+        text: 'I hired the engineers and set the direction. They migrated every existing pipeline, and the other engineering teams now serve themselves.',
       },
       {
-        title: 'Leadership',
-        items: [
-          'Tech leadership',
-          'Hiring & team building',
-          'Mentoring',
-          'Project management',
-          'Data roadmaps',
-        ],
+        figure: '−90%',
+        title: 'Cost of search',
+        text: 'We moved product search to a different platform. It also got faster.',
       },
-    ] satisfies SkillGroup[],
+      {
+        figure: 'GDPR',
+        title: 'Privacy',
+        text: 'Anonymisation and deletion of personal data across the platform, reviewed and signed off by Legal.',
+      },
+    ] satisfies Outcome[],
+    note: 'The teams did this work. My part was deciding what to take on, making the trade-offs and finding the budget.',
+  },
+  focus: {
+    title: 'Focus',
+    lead: 'What I’m working on now.',
+    items: [
+      'Peak readiness: capacity plans, load tests and runbooks settled well before the busiest weeks of the year.',
+      'A data catalogue, so anyone can find a dataset, see who owns it, and trust that a metric means the same thing everywhere.',
+      'Wider catalogue coverage: more product feeds and better product matching.',
+    ],
+  },
+  background: {
+    title: 'Background',
+    paragraphs: [
+      'I joined GoWish as a senior software engineer and became technical lead of the e-commerce platform team a few months later. I then founded the company’s data engineering function, and today I lead both as Head of Data & Product Platforms.',
+      'Before that I spent two years at Wiredelta in Copenhagen, building e-commerce systems for Danish clients. I started out in Budapest: full-stack development at Zoosh, where I first mentored other engineers, project management at Technokrats on projects for the National Bank of Hungary, and an internship at Telekom.',
+      'I studied computer engineering at BME in Budapest and did my master’s in computer science at DTU, on the computer security line. My thesis, on secure and decentralised firmware updates for IoT devices, was published at IEEE Blockchain 2023.',
+      'I’m originally from Hungary and live in Copenhagen.',
+    ],
+    photo: {
+      src: '/photos/coast.jpg',
+      alt: 'Vince leaning on a wooden railing in front of white chalk cliffs above a pale green sea',
+      width: 750,
+      height: 1000,
+    } satisfies Photo,
+  },
+  outside: {
+    title: 'Outside work',
+    paragraphs: [
+      'I hike a lot, mostly in the Alps and the Norwegian fjords. I also photograph the northern lights, and build models to predict when they’ll show up.',
+      'The gym is a big part of my week. I’m also a little obsessed with my VO₂ max, so I try to run and cycle as well.',
+      'To wind down I play chess (blitz and classical), the New York Times games and Counter-Strike, and I watch LaLiga.',
+    ],
+    photo: {
+      src: '/photos/ridge.jpg',
+      alt: 'Vince in a rain shell and beanie on a snow-dusted mountain ridge, with jagged peaks behind',
+      width: 800,
+      height: 1000,
+    } satisfies Photo,
   },
   contact: {
-    title: "Let's talk!",
-    text: 'Have a question or a project in mind? My inbox is always open.',
-    emailCta: 'Write me an email',
+    title: 'Contact',
+    text: 'Email is the best way to reach me.',
   },
   footer: {
-    madeWith: 'Built with React, Vite & TypeScript. No cookies, no tracking.',
-    top: 'Back to top',
+    note: 'No cookies, no tracking.',
   },
 };

@@ -1,23 +1,41 @@
 import type { ReactNode } from 'react';
-import useReveal from '../hooks/useReveal';
+import { content, type Photo } from '../data/content';
 
 interface Props {
   id: string;
   title: string;
-  subtitle?: string;
+  lead?: string;
+  /** Optional photo, shown beside the text on wide screens and below it on narrow ones. */
+  photo?: Photo;
   children: ReactNode;
 }
 
-export default function Section({ id, title, subtitle, children }: Props) {
-  const ref = useReveal<HTMLDivElement>();
-
+export default function Section({ id, title, lead, photo, children }: Props) {
   return (
-    <section id={id} className="section">
-      <div className="container reveal" ref={ref}>
-        <h2 className="section-title">{title}</h2>
-        {subtitle ? <p className="section-subtitle">{subtitle}</p> : null}
-        {children}
-      </div>
+    <section id={id} className="section" aria-labelledby={`${id}-title`}>
+      <h2 id={`${id}-title`}>
+        {title}
+        <a className="anchor" href={`#${id}`} aria-label={`${content.a11y.anchor}: ${title}`}>
+          #
+        </a>
+      </h2>
+      {lead ? <p className="lead">{lead}</p> : null}
+      {photo ? (
+        <div className="split">
+          <div>{children}</div>
+          <img
+            className="photo"
+            src={photo.src}
+            alt={photo.alt}
+            width={photo.width}
+            height={photo.height}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      ) : (
+        children
+      )}
     </section>
   );
 }

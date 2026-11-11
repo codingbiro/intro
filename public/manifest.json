@@ -1,6 +1,6 @@
 {
   "short_name": "birovince",
-  "name": "Vince Biró — Full Stack Engineer",
+  "name": "Vince Biró",
   "icons": [
     {
       "src": "favicon.ico",
@@ -16,6 +16,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#5e60ce",
-  "background_color": "#f6f7fc"
+  "theme_color": "#fcfcfb",
+  "background_color": "#fcfcfb"
 }

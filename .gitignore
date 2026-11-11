@@ -15,3 +15,10 @@ coverage/
 .env.*
 .eslintcache
 *.tsbuildinfo
+
+# full-size source photos; the site uses the crops in public/photos
+photo-originals/
+
+# research notes and reports behind the site copy; not part of the site
+research_notes/
+reports/

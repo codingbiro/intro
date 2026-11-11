@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { ThemeContext, type ThemeMode, type ThemeValue } from './context';
 
 const THEME_COLORS: Record<ThemeMode, string> = {
-  light: '#f6f7fc',
-  dark: '#0e1020',
+  light: '#fcfcfb',
+  dark: '#0d0d0c',
 };
 
 function detectTheme(): ThemeMode {

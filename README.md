@@ -2,7 +2,7 @@
 
 Source code for [birovince.com](https://birovince.com) — personal website of Vince Biró.
 
-A fast single-page site with light & dark mode.
+A plain, documentation-style single page with light & dark mode.
 Built with [React 19](https://react.dev), [Vite](https://vite.dev) and TypeScript — no UI framework, no tracking.
 
 ## Scripts
@@ -20,16 +20,17 @@ Built with [React 19](https://react.dev), [Vite](https://vite.dev) and TypeScrip
 
 ```
 index.html            Entry HTML: meta/OG tags, JSON-LD, theme bootstrap
-public/               Static assets (portrait, favicon, manifest)
+public/               Static assets (favicon, manifest, og-image, face.jpg)
+  photos/             Cropped, web-sized photos used on the page
 src/
-  components/         Header, Hero, About, Skills, Contact, Footer
+  components/         Sidebar, Intro, Outcomes, Background, Focus, Outside, Contact, Footer
   data/               content.ts (all site copy) and profile.ts (links, email)
   theme/              Light/dark theme context (persists choice, follows OS by default)
-  hooks/              useTypewriter, useReveal, usePrefersReducedMotion
-  styles.css          Design system: CSS custom properties, mobile-first layout
+  hooks/              useActiveSection (highlights the current section in the sidebar)
+  styles.css          Design tokens and layout: system fonts, monochrome, mobile-first
 ```
 
 ## Editing content
 
-All text lives in `src/data/content.ts` — hero copy, about paragraphs, skills.
+All text lives in `src/data/content.ts` — intro, outcomes, background, photo alt text.
 Contact details and social links live in `src/data/profile.ts`.
