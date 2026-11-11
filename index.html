@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vince Biró · Engineer & Tech Lead</title>
+    <title>Vince Biró · Engineering leader in Copenhagen</title>
     <meta
       name="description"
-      content="Hi, I am Vince! Engineer and technical leader in Copenhagen. I build things that scale — full stack apps, data platforms and cloud infrastructure — and help teams do the same."
+      content="Vince Biró is a software engineer who leads the product catalogue and data platform teams at GoWish in Copenhagen. Results from his teams, his background, and what he does outside work."
     />
     <link rel="icon" href="/bv_logo.ico" />
     <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href="https://birovince.com/" />
-    <meta name="theme-color" content="#f6f7fc" />
+    <meta name="theme-color" content="#fcfcfb" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Vince Biró · Engineer & Tech Lead" />
+    <meta property="og:title" content="Vince Biró · Engineering leader in Copenhagen" />
     <meta
       property="og:description"
-      content="Engineer and technical leader building teams and systems that scale — full stack, data platforms and cloud."
+      content="I’m a software engineer and lead the product catalogue and data platform teams at GoWish. Results from my teams, my background, and life outside work."
     />
     <meta property="og:url" content="https://birovince.com/" />
     <meta property="og:site_name" content="Vince Biró" />
@@ -26,11 +26,11 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Vince Biró, Engineer &amp; Tech Lead, Copenhagen" />
+    <meta property="og:image:alt" content="Vince Biró, Head of Data &amp; Product Platforms at GoWish, Copenhagen" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Vince Biró · Engineer &amp; Tech Lead" />
+    <meta name="twitter:title" content="Vince Biró · Engineering leader in Copenhagen" />
     <meta name="twitter:image" content="https://birovince.com/og-image.jpg" />
-    <meta name="twitter:image:alt" content="Vince Biró, Engineer &amp; Tech Lead, Copenhagen" />
+    <meta name="twitter:image:alt" content="Vince Biró, engineering leader, Copenhagen" />
     <script>
       (function () {
         try {
@@ -42,6 +42,8 @@
                 : 'light';
           }
           document.documentElement.dataset.theme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#0d0d0c' : '#fcfcfb');
         } catch (e) {
           document.documentElement.dataset.theme = 'light';
         }
@@ -53,7 +55,7 @@
         "@type": "Person",
         "name": "Vince Biró",
         "alternateName": "Biró Vince",
-        "jobTitle": "Tech Lead",
+        "jobTitle": "Head of Data & Product Platforms",
         "worksFor": { "@type": "Organization", "name": "Ønskeskyen (GoWish)" },
         "alumniOf": [
           { "@type": "CollegeOrUniversity", "name": "Technical University of Denmark (DTU)" },
