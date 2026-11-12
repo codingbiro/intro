@@ -9,6 +9,12 @@ export interface Outcome {
   text: string;
 }
 
+export interface TextLink {
+  /** The exact words in a paragraph that become the link. */
+  phrase: string;
+  href: string;
+}
+
 export interface Photo {
   src: string;
   alt: string;
@@ -40,54 +46,54 @@ export const content = {
   },
   intro: {
     paragraphs: [
-      'Hi, I’m Vince. I’m a software engineer, and I lead two engineering teams at GoWish (Ønskeskyen), the social wishlist app. One runs the product catalogue and keeps billions of products current. The other runs the data platform the rest of the company works from.',
+      'Hi, I’m Vince. I’m a software engineer, and I lead two engineering teams. One runs a product catalogue and keeps billions of products current. The other runs the data platform a whole company works from.',
       'I lead by writing decisions down, handing over ownership early, and staying close to both the code and the cost. I like systems that keep working as they grow, and teams that can run them without me.',
     ],
   },
   outcomes: {
     title: 'Outcomes',
-    lead: 'The scale we work at, and a few results from the teams I lead.',
+    lead: 'The scale I work at, and what I’ve built there with my teams.',
     items: [
       {
-        figure: '1B+',
-        title: 'API requests a day',
-        text: 'Across all of GoWish’s services.',
+        figure: '50k',
+        title: 'API requests a second at peak',
+        text: 'The production traffic I build for, spread over dozens of horizontally autoscaled microservices on Kubernetes.',
       },
       {
         figure: '~1B',
         title: 'Product updates a day',
-        text: 'Price and stock changes for a catalogue of billions of products. The team kept it fast through a tenfold rise in traffic.',
+        text: 'Price and stock changes across a catalogue of billions of products. I led the team that kept it fast through a tenfold rise in traffic.',
       },
       {
         figure: '10M+',
         title: 'Web pages scraped a day',
-        text: 'On a scraper we rebuilt in-house, on infrastructure we own. It costs a quarter less to run and fails less often.',
+        text: 'On a scraping platform my team rebuilt from scratch. It costs a quarter less to run and fails less often.',
       },
       {
         figure: '0 → 1',
         title: 'A data platform, and a team to run it',
-        text: 'I hired the engineers and set the direction. They migrated every existing pipeline, and the other engineering teams now serve themselves.',
+        text: 'I hired the engineers and set the direction. Every pipeline now runs on it, and other teams use it without needing us.',
       },
       {
         figure: '−90%',
-        title: 'Cost of search',
-        text: 'We moved product search to a different platform. It also got faster.',
+        title: 'Cost of vector search',
+        text: 'I moved product search to a new vector search setup. It answers millions of searches a day in about 200 ms on average, at a tenth of the cost of the legacy one.',
       },
       {
         figure: 'GDPR',
         title: 'Privacy',
-        text: 'Anonymisation and deletion of personal data across the platform, reviewed and signed off by Legal.',
+        text: 'Anonymisation and deletion of personal data, built into every part of the platform.',
       },
     ] satisfies Outcome[],
-    note: 'The teams did this work. My part was deciding what to take on, making the trade-offs and finding the budget.',
+    note: 'I led the teams that built this. My part was choosing what to take on, making the trade-offs and finding the budget.',
   },
   focus: {
     title: 'Focus',
-    lead: 'What I’m working on now.',
+    lead: 'The problems I like working on.',
     items: [
-      'Peak readiness: capacity plans, load tests and runbooks settled well before the busiest weeks of the year.',
-      'A data catalogue, so anyone can find a dataset, see who owns it, and trust that a metric means the same thing everywhere.',
-      'Wider catalogue coverage: more product feeds and better product matching.',
+      'Scale: capacity plans, load tests and runbooks finished well before the traffic arrives.',
+      'Trustworthy data: every dataset easy to find, with a named owner, and every metric defined once.',
+      'Cost: knowing what each system costs to run, and bringing it down.',
     ],
   },
   background: {
@@ -98,6 +104,12 @@ export const content = {
       'I studied computer engineering at BME in Budapest and did my master’s in computer science at DTU, on the computer security line. My thesis, on secure and decentralised firmware updates for IoT devices, was published at IEEE Blockchain 2023.',
       'I’m originally from Hungary and live in Copenhagen.',
     ],
+    links: [
+      {
+        phrase: 'IEEE Blockchain 2023',
+        href: 'https://doi.org/10.1109/Blockchain60715.2023.00046',
+      },
+    ] satisfies TextLink[],
     photo: {
       src: '/photos/coast.jpg',
       alt: 'Vince leaning on a wooden railing in front of white chalk cliffs above a pale green sea',
@@ -124,6 +136,6 @@ export const content = {
     text: 'Email is the best way to reach me.',
   },
   footer: {
-    note: 'No cookies, no tracking.',
+    note: 'No cookies. Visits are logged.',
   },
 };

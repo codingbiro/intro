@@ -38,6 +38,14 @@ describe('App', () => {
     }
   });
 
+  it('links the published paper from the background section', () => {
+    render(<App />);
+
+    for (const { phrase, href } of content.background.links) {
+      expect(screen.getByRole('link', { name: phrase })).toHaveAttribute('href', href);
+    }
+  });
+
   it('toggles dark mode', async () => {
     const user = userEvent.setup();
     render(<App />);

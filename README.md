@@ -3,7 +3,11 @@
 Source code for [birovince.com](https://birovince.com) — personal website of Vince Biró.
 
 A plain, documentation-style single page with light & dark mode.
-Built with [React 19](https://react.dev), [Vite](https://vite.dev) and TypeScript — no UI framework, no tracking.
+Built with [React 19](https://react.dev), [Vite](https://vite.dev) and TypeScript — no UI framework, no cookies.
+
+Each page view on the live site is reported to a small visit log (`src/visitLog.ts`), the same
+Cloudflare Worker that backs travels.birovince.com. It records the IP address, approximate location,
+browser, referrer and screen size, and keeps entries for 90 days. Local dev, previews and tests send nothing.
 
 ## Scripts
 
@@ -27,6 +31,7 @@ src/
   data/               content.ts (all site copy) and profile.ts (links, email)
   theme/              Light/dark theme context (persists choice, follows OS by default)
   hooks/              useActiveSection (highlights the current section in the sidebar)
+  visitLog.ts         Reports each page view on the live site to the visit log
   styles.css          Design tokens and layout: system fonts, monochrome, mobile-first
 ```
 
